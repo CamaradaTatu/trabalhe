@@ -7,15 +7,15 @@ import play.db.jpa.Model;
 
 @Entity
 public class Comentario extends Model{
+	
 public String comentario;
+public int nota;
 	
 	@ManyToOne
-	@JoinColumn(name="comentarios")
+	@JoinColumn(name="Jogo")
+	public Jogo jogo;
+	
+	@ManyToOne
+	@JoinColumn(name="Autor")
 	public Usuario usuario;
-
-	@Override
-	public String toString() {
-		return comentario;
-	}
-
 }

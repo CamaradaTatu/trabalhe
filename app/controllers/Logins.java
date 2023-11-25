@@ -1,6 +1,7 @@
 package controllers;
 
 import play.mvc.Controller;
+
 import models.Usuario;
 
 public class Logins extends Controller{
@@ -18,6 +19,7 @@ public class Logins extends Controller{
 			Usuario pessoaBanco = Usuario.find("email = ?1 and senha = ?2", email, senha).first();
 			if (pessoaBanco != null) {
 				session.put("usuarioLogado", pessoaBanco.email);
+				session.put("userId", pessoaBanco.id);
 				flash.success("Login realizado com sucesso!");
 				Usuarios.telaInicial();
 			}	

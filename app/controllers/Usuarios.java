@@ -7,7 +7,7 @@ import play.mvc.Before;
 import play.mvc.Controller;
 import play.mvc.With;
 
-@With(Secure.class)
+
 public class Usuarios extends Controller{
 
 	public static void telaInicial() {
