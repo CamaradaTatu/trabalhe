@@ -21,7 +21,7 @@ public class Logins extends Controller{
 				session.put("usuarioLogado", pessoaBanco.email);
 				session.put("userId", pessoaBanco.id);
 				flash.success("Login realizado com sucesso!");
-				Usuarios.telaInicial();
+				Usuarios.telaInicial(null);
 			}	
 			flash.error("Credenciais inválidas");
 			login();

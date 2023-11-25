@@ -32,7 +32,7 @@ public class Comentarios extends Controller {
 		
 		
 		C.save();
-		Usuarios.telaInicial();
+		Usuarios.telaInicial(null);
 		// listar();
 	}
 

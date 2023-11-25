@@ -1,16 +1,17 @@
 package controllers;
 
 import java.util.List;
+import models.Jogo;
 import models.Usuario;
 import play.mvc.Controller;
 import play.mvc.Before;
-import play.mvc.Controller;
 import play.mvc.With;
 
 
 public class Usuarios extends Controller{
 
-	public static void telaInicial() {
+	public static void telaInicial(String termo) {
+		Usuarios.listar(termo);
 		render();
 	}
 	public static void listaJogos() {
@@ -29,21 +30,20 @@ public class Usuarios extends Controller{
 		listar(null);
 	}
 	
-	public static void listar(String termo) {
-		List<Usuario> usuarios = null;
-		if (termo == null || termo.isEmpty()) {
-			usuarios = Usuario.findAll();			
-		} else {
-			usuarios = Usuario.find("lower(nome) like ?1 or lower(email) like ?1",
-					"%"+ termo.toLowerCase() +"%").fetch();
-		}
-		render(usuarios, termo);
+	 static void listar(String termo) {
+		 List<Jogo> jogos = null;
+			if (termo == null || termo.isEmpty()) {
+				render(jogos, termo);
+			} else {
+				jogos = Jogo.find("lower(nome) like ?1","%"+ termo.toLowerCase() +"%").fetch();
+			}
+			render(jogos, termo);
 	}
 	
 	public static void salvar(Usuario usu) {
 
 		usu.save();
 		flash.success("A pessoa foi cadastrada com sucesso.");
-		Usuarios.telaInicial();
+		Usuarios.telaInicial(null);
 	}
 }

@@ -13,9 +13,14 @@
 
 		<h1 class="ms-5 col-3">ACERTO CRÍTICO</h3>
 
-			<form class="d-flex col-6" role="search">
-				<input class="form-control me-3" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-				<button class="btn btn-dark" type="submit">Pesquisar</button>
+			<form class="d-flex col-6" role="search" action="@{Usuarios.telaInicial}">
+				<input class="form-control me-3" type="search" placeholder="Pesquisar" aria-label="Pesquisar" 
+				name="termo" value="${termo}">
+				<button class="btn btn-dark" type="submit" value="Buscar">Pesquisar</button>
+			</form>
+			#{list items:jogos, as:'j'}
+	    ${j.nome}-${j.descricao}-${j.nota}
+	#{/list}
 			</form>
 	</nav>
 	<div class="row w-50 mx-auto mt-5 border-bottom bottom-light">
