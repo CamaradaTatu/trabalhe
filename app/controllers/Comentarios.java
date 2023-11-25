@@ -2,9 +2,10 @@ package controllers;
 
 import java.util.List;
 
-import models.Usuario;
+
 import models.Comentario;
 import models.Jogo;
+import models.Usuario;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -34,6 +35,12 @@ public class Comentarios extends Controller {
 		C.save();
 		Usuarios.telaInicial(null);
 		// listar();
+	}
+	
+	public static void listaComentario(Long idJogo) {
+		Jogo jSelecionado = Jogo.findById(idJogo);
+		render(jSelecionado);
+		
 	}
 
 	/*

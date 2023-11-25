@@ -1,9 +1,14 @@
 package models;
 
 import javax.persistence.Entity;
+
+
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import play.db.jpa.Model;
+import models.Jogo;
+import models.Usuario;
+
 
 @Entity
 public class Comentario extends Model{

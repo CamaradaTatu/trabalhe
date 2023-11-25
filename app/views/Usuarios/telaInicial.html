@@ -31,19 +31,28 @@
 
 		<div class="row mt-1 w-50 mx-auto px-0">
 			<div class="col me-2 px-0">
-				<a href="">
-					<img src="@{'/public/images/Castlevânia.jpg'}" alt="Castlevânia" class="img-fluid rounded px-0">
-				</a>
+				
+				<form action="@{Comentarios.listaComentario}">
+					<input type="hidden" name="idJogo" value="${relAnt.id}"/>
+					<button type="submit" class="btn m-0 p-0">
+					<img src= "${relAnt.caminhoImg}" alt="Castlevânia" class="img-fluid rounded px-0">
+					</button>		
+				</form>
 			</div>
+			
 			<div class="col me-2 px-0">
-				<a href="">
-					<img src="@{'/public/images/zelda.jpg'}" alt="Castlevânia" class="img-fluid rounded px-0">
-				</a>
+				<form action="@{Comentarios.listaComentario}">
+					<input type="hidden" name="idJogo" value="${sucAno.id}"/>
+					<button type="submit" class="btn m-0 p-0">
+					<img src="${sucAno.caminhoImg}" alt="Castlevânia" class="img-fluid rounded px-0">
+					</button>
 			</div>
 			<div class="col px-0">
-				<a href="">
-					<img src="@{'/public/images/detroit.jpg'}" alt="Castlevânia" class="img-fluid rounded px-0">
-				</a>
+				<form action="@{Comentarios.listaComentario}">
+					<input type="hidden" name="idJogo" value="${expDif.id}"/>
+					<button type="submit" class="btn m-0 p-0">
+					<img src="${expDif.caminhoImg}" alt="Castlevânia" class="img-fluid rounded px-0">
+					</button>				
 			</div>
 		</div>
 
@@ -54,8 +63,8 @@
 				<div class="card-body text-light ">
 					<div class="clearfix">
 						<img src="@{'/public/images/dado.png'}" alt="nota" class="col-5 img-fluid float-end m-0 p-0">
-						<h5 class="card-title col-8">Castlevânia SOTN</h5>
-						<h6 class="card-subtitle mb-2 text-light">Uma Relíquia Antiga</h6>
+						<h5 class="card-title col-8">${relAnt.nome}</h5>
+						<h6 class="card-subtitle my-2 text-light">UMA RELÍQUIA ANTIGA</h6>
 						<p class="card-text col-12">
 							Symphony of the Night apresenta jogabilidade de rolagem lateral. O objetivo é explorar o
 							castelo de Dracula para derrotar uma entidade que está controlando Richter Belmont, que se
@@ -69,8 +78,8 @@
 				<div class="card-body text-light ">
 					<div class="clearfix">
 						<img src="@{'/public/images/dado.png'}" alt="nota" class="col-5 img-fluid float-end m-0 p-0">
-						<h5 class="card-title col-8">Castlevânia SOTN</h5>
-						<h6 class="card-subtitle mb-2 text-light">Uma Relíquia Antiga</h6>
+						<h5 class="card-title col-8">${sucAno.nome}</h5>
+						<h6 class="card-subtitle my-2 text-light">UM SUCESSO DO ANO</h6>
 						<p class="card-text col-12">
 							Symphony of the Night apresenta jogabilidade de rolagem lateral. O objetivo é explorar o
 							castelo de Dracula para derrotar uma entidade que está controlando Richter Belmont, que se
@@ -84,8 +93,8 @@
 				<div class="card-body text-light ">
 					<div class="clearfix">
 						<img src="@{'/public/images/dado.png'}" alt="nota" class="col-5 img-fluid float-end m-0 p-0">
-						<h5 class="card-title col-8">Castlevânia SOTN</h5>
-						<h6 class="card-subtitle mb-2 text-light">Uma Relíquia Antiga</h6>
+						<h5 class="card-title col-8">${expDif.nome}</h5>
+						<h6 class="card-subtitle my-2 text-light">UMA EXPERIÊNCIA DIFERENTE</h6>
 						<p class="card-text col-12">
 							Symphony of the Night apresenta jogabilidade de rolagem lateral. O objetivo é explorar o
 							castelo de Dracula para derrotar uma entidade que está controlando Richter Belmont, que se

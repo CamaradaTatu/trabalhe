@@ -1,6 +1,7 @@
 package controllers;
 
 import java.util.List;
+
 import models.Jogo;
 import models.Usuario;
 import play.mvc.Controller;
@@ -11,8 +12,13 @@ import play.mvc.With;
 public class Usuarios extends Controller{
 
 	public static void telaInicial(String termo) {
-		Usuarios.listar(termo);
-		render();
+		
+		Jogo relAnt =  Jogo.findById(Long.valueOf(1));
+		Jogo sucAno = Jogo.findById(Long.valueOf(3));
+		Jogo expDif = Jogo.findById(Long.valueOf(2));
+		render(relAnt, sucAno, expDif);
+	//	Usuarios.listar(termo); 
+		// A linha acima contém um render no final de seu comando, o que estava impedindo meu código de funcionar
 	}
 	public static void listaJogos() {
 		render();
