@@ -15,6 +15,7 @@ public class Usuarios extends Controller{
 		Jogo sucAno = Jogo.findById(Long.valueOf(3));
 		Jogo expDif = Jogo.findById(Long.valueOf(2));
 		List<Jogo> jogos = null;
+		
 		if (termo == null || termo.isEmpty()) {
 	    render(relAnt, sucAno, expDif,jogos, termo);
 		} else {

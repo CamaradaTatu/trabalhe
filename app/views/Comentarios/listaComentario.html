@@ -22,9 +22,9 @@
 			class="card col-9 my-4 mx-0 px-0 bg-dark text-light rounded-0 border-light border-top-0 border-start-0 border-bottom-0">
 			<div class="row g-0">
 				<div class="col-2 pt-3">
-										
-						<img src="${jSelecionado.caminhoImg}" class="img-fluid" alt="...">
-											
+
+					<img src="${jSelecionado.caminhoImg}" class="img-fluid" alt="...">
+
 				</div>
 				<div class="col-10">
 					<div class="clearfix">
@@ -99,7 +99,9 @@
 				<div class="card bg-dark col-11 mx-auto border-0 ">
 					<div class="card-header text-light">usuario legal</div>
 					<div class="card-body text-light">
-						<p class="card-text">Argumentos ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+						<p class="card-text">Argumentos
+							~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+						</p>
 					</div>
 				</div>
 
@@ -126,7 +128,41 @@
 		</div>
 
 	</div>
+	 
+	<div class="row">
+		<h1 class="display-6 text-light text-center">Deixar crítica</h1>
+	</div>
+	<form action="@{Comentarios.salvar}" method="POST">
+		
+		<input type="hidden" name="C.id" />
+		<input type="hidden" name="email" value="${email}" />
+		
+		<div class="row border border-light border-opacity-50 border-5 rounded-5 shadow-lg w-25 mx-auto mb-4">
+			<div class="mt-3 mx-auto w-75 ">
 
+				<label class="text-light" style="font-size: 32px;">${jSelecionado.nome}</label>
+				<input type="hidden" name="idJogo" value="${jSelecionado.id}">
+
+			</div>
+			<div class="mt-3 mx-auto w-75 ">
+
+				<label for="" class="form-label" style="color: white;">Dê uma nota de 0 a 20:</label>
+				<input type="text" class="form-control" style="background-color:#0d0d0d; color: white;" name="C.nota">
+
+			</div>
+
+			<div class="mb-4 mt-3 mx-auto w-75 ">
+
+				<label for="" class="form-label" style="color: white;">Dê sua crítica</label>
+				<input type="text" class="form-control" style="background-color:#0d0d0d; color: white;"
+					name="C.comentario">
+
+			</div>
+			<input class="btn btn-danger mb-4 mx-auto col-4" type="submit"/>
+
+		</div>
+		
+	</form>
 
 </body>
 

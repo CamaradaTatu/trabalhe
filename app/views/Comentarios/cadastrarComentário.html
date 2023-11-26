@@ -16,7 +16,7 @@ integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQI
 	</div>
 	<form action="@{Comentarios.salvar}" method="POST">
 	<input type="hidden" name="C.id" />
-	<input type="text" name="email" value="${email}"/>
+	<input type="hidden" name="email" value="${email}"/>
 	<div class="row border border-light border-opacity-50 border-5 rounded-5 shadow-lg w-25 mx-auto">
 		<div class="mt-3 mx-auto w-75 ">
 			
@@ -44,9 +44,9 @@ integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQI
 			<input type="text" class="form-control" style="background-color:#0d0d0d; color: white;" name="C.comentario">
 			
 		</div>
-		
+		<input class="btn btn-danger mb-4 mx-auto col-4" type="submit"/>
 	</div>
-	<input class="btn btn-primary" type="submit"/>
+	
 	</form>
 </body>
 </html>

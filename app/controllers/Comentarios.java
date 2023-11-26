@@ -39,7 +39,8 @@ public class Comentarios extends Controller {
 	
 	public static void listaComentario(Long idJogo) {
 		Jogo jSelecionado = Jogo.findById(idJogo);
-		render(jSelecionado);
+		String email = session.get("usuarioLogado");
+		render(jSelecionado, email);
 		
 	}
 
