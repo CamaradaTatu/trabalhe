@@ -14,7 +14,7 @@ public class Usuario extends Model{
 	
 	@Override
 	public String toString() {
-		return email + " " + senha;
+		return nome;
 	}
 
 }

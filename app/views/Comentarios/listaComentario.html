@@ -53,75 +53,45 @@
 
 	</div>
 	<div class="row row-cols-3 w-75 mx-auto my-5 pt-5">
+		
 		<div class="col border border-top-0 border-bottom-0 border-light">
 			<div class="row ">
+				#{list items:comentariosB, as:'b'}
 				<div class="card bg-dark col-11 mx-auto border-0 ">
-					<div class="card-header text-light">Fanboy</div>
+					<div class="card-header text-light">${b.usuario.nome}</div>
 					<div class="card-body text-light">
-						<p class="card-text">Mucho bom</p>
-					</div>
+						<p class="card-text">${b.comentario}</p>
+					</div>					
 				</div>
-				<div class="card bg-dark col-11 mx-auto border-0 ">
-					<div class="card-header text-light">Fanboy</div>
-					<div class="card-body text-light">
-						<p class="card-text">Poggers</p>
-					</div>
-				</div>
-				<div class="card bg-dark col-11 mx-auto border-0 ">
-					<div class="card-header text-light">kanboy</div>
-					<div class="card-body text-light">
-						<p class="card-text">Mucho bom</p>
-					</div>
-				</div>
-				<div class="card bg-dark col-11 mx-auto border-0 ">
-					<div class="card-header text-light">danboy</div>
-					<div class="card-body text-light">
-						<p class="card-text">muito massa</p>
-					</div>
-				</div>
-				<div class="card bg-dark col-11 mx-auto border-0 ">
-					<div class="card-header text-light">Fenboy</div>
-					<div class="card-body text-light">
-						<p class="card-text">Mucho bom</p>
-					</div>
-				</div>
-				<div class="card bg-dark col-11 mx-auto border-0 ">
-					<div class="card-header text-light">Fanboy</div>
-					<div class="card-body text-light">
-						<p class="card-text">Mucho bom</p>
-					</div>
-				</div>
+				#{/list}
 
 			</div>
 		</div>
+		
 		<div class="col">
 			<div class="row">
+				#{list items:comentariosM, as:'m'}
 				<div class="card bg-dark col-11 mx-auto border-0 ">
-					<div class="card-header text-light">usuario legal</div>
+					<div class="card-header text-light">${m.usuario.nome}</div>
 					<div class="card-body text-light">
-						<p class="card-text">Argumentos
-							~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+						<p class="card-text">${m.comentario}
 						</p>
 					</div>
 				</div>
-
+				#{/list}
 			</div>
-
 		</div>
+		
 		<div class="col border border-top-0 border-bottom-0 border-light">
 			<div class="row">
+				#{list items:comentariosR, as:'r'}
 				<div class="card bg-dark col-11 mx-auto border-0">
-					<div class="card-header text-light">Hater</div>
+					<div class="card-header text-light">${r.usuario.nome}</div>
 					<div class="card-body text-light">
-						<p class="card-text"> блин, это 200 историй</p>
+						<p class="card-text">${r.comentario}</p>
 					</div>
 				</div>
-				<div class="card bg-dark col-11 mx-auto border-0">
-					<div class="card-header text-light">Hater</div>
-					<div class="card-body text-light">
-						<p class="card-text"> блин, это 200 историй</p>
-					</div>
-				</div>
+				#{/list}
 
 			</div>
 
@@ -130,7 +100,7 @@
 	</div>
 	 
 	<div class="row">
-		<h1 class="display-6 text-light text-center">Deixar crítica</h1>
+		<h1 class="display-6 text-light text-center">Deixe Sua Crítica!</h1>
 	</div>
 	<form action="@{Comentarios.salvar}" method="POST">
 		

@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -30,9 +31,23 @@ public class Comentarios extends Controller {
 		
 		C.jogo = jogo;
 		C.usuario = usu;
+		String condicional = null;
+		List<Comentario> comentarios = Comentario.findAll();
+		for (int i = 0; i < comentarios.size(); i++) {
+			if(comentarios.get(i).jogo == jogo && comentarios.get(i).usuario == usu) {
+				condicional = "";
+			}
+			
+		}
+		if (condicional == null) {
+			flash.success("Sua crítica foi adicionada em nosso site!");
+			C.save();
+		}
 		
+		else {
+			flash.error("você ja possui uma crítica para este jogo!");
+		}	
 		
-		C.save();
 		Usuarios.telaInicial(null);
 		// listar();
 	}
@@ -40,7 +55,26 @@ public class Comentarios extends Controller {
 	public static void listaComentario(Long idJogo) {
 		Jogo jSelecionado = Jogo.findById(idJogo);
 		String email = session.get("usuarioLogado");
-		render(jSelecionado, email);
+		List<Comentario> comentarios = Comentario.findAll();
+		List<Comentario> comentariosR = new ArrayList<Comentario>();
+		List<Comentario> comentariosM = new ArrayList<Comentario>();
+		List<Comentario> comentariosB = new ArrayList<Comentario>();
+		
+		// o trecho abaixo itera sobre todos os comentários para achar todos os comentários relacionados ao jogo selecionado(jSelecionado) e dividi-los em ruim, médio ou bom.
+		for (int i = 0; i < comentarios.size(); i++) {
+			if (comentarios.get(i).jogo == jSelecionado) {
+				if(comentarios.get(i).nota >= 1 && comentarios.get(i).nota <= 7) {
+					comentariosR.add(comentarios.get(i));
+				}
+				else if(comentarios.get(i).nota >= 8 && comentarios.get(i).nota <= 14) {
+					comentariosM.add(comentarios.get(i));
+				}
+				else if(comentarios.get(i).nota >= 15 && comentarios.get(i).nota <= 20) {
+					comentariosB.add(comentarios.get(i));
+				}
+			}
+		}
+		render(jSelecionado, email, comentariosR, comentariosM, comentariosB);
 		
 	}
 
