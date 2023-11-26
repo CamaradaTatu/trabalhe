@@ -15,8 +15,14 @@
 				<input class="form-control me-3" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
 				<button class="btn btn-dark" type="submit">Pesquisar</button>
 			</form>
-	</nav>
+			    
 
+	</nav>
+#{if session['usuarioLogado']}
+		    		${session['usuarioLogado']}
+		    	
+		    	<a href="@{Logins.logout}" class="ms-2 btn btn-outline-success">Logout</a>
+		  	#{/if}
 	<div class="row w-50 mx-auto">
 		<div
 			class="card col-9 my-4 mx-0 px-0 bg-dark text-light rounded-0 border-light border-top-0 border-start-0 border-bottom-0">

@@ -22,6 +22,13 @@
 	    ${j.nome}-${j.descricao}-${j.nota}
 	#{/list}
 			</form>
+			    #{if session['usuarioLogado']}
+		    	<span class="navbar-text">
+		    		${session['usuarioLogado']}
+		    	</span>
+		    	<a href="@{Logins.logout}" class="ms-2 btn btn-outline-success">Logout</a>
+		  	#{/if}
+
 	</nav>
 	<div class="row w-50 mx-auto mt-5 border-bottom bottom-light">
 		<h3 class="text-light ps-0">DESTAQUES</h6>

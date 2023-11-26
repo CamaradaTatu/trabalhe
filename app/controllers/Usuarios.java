@@ -42,9 +42,20 @@ public class Usuarios extends Controller{
 	}
 	
 	public static void salvar(Usuario usu) {
-
-		usu.save();
-		flash.success("A pessoa foi cadastrada com sucesso.");
-		Usuarios.telaInicial(null);
+		
+		
+		try {
+		    usu.save();
+		    flash.success("A pessoa foi cadastrada com sucesso.");
+		    Logins.logar(usu.email, usu.senha);
+		} catch (javax.persistence.PersistenceException e) {
+		    Throwable cause = e.getCause();
+		    if (cause instanceof org.hibernate.exception.ConstraintViolationException) {
+		    	flash.error("tentativa de cadastro invalido, tente outro email.");
+		    	Logins.cadastrar();
+		    } else {
+		        e.printStackTrace();
+		    }
+		}
 	}
 }
