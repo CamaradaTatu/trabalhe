@@ -11,27 +11,30 @@
 <body style="background-color: #21262b;">
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
 
-		<h1 class="ms-5 col-3">ACERTO CRÍTICO</h3>
+		<h1 class="ms-5 col-3">ACERTO CRÍTICO</h1>
 
-			<form class="d-flex col-6" role="search" action="@{Usuarios.telaInicial}">
-				<input class="form-control me-3" type="search" placeholder="Pesquisar" aria-label="Pesquisar" 
+			<form class="d-flex col-5" role="search" action="@{Usuarios.telaInicial}">
+				<input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar" 
 				name="termo" value="${termo}">
 				<button class="btn btn-dark" type="submit" value="Buscar">Pesquisar</button>
 			</form>
 			#{list items:jogos, as:'j'}
-	    ${j.nome}-${j.descricao}-${j.nota}
+	    ${j.nome}
 	#{/list}
-			</form>
+			
 			    #{if session['usuarioLogado']}
-		    	<span class="navbar-text">
-		    		${session['usuarioLogado']}
+			    <div class= "row col-3 mx-auto ">
+		    	<span class="navbar-text col-7">
+		    	<h5>${session['usuarioLogado']}</h5>
 		    	</span>
-		    	<a href="@{Logins.logout}" class="ms-2 btn btn-outline-success">Logout</a>
+		    	<a href="@{Logins.logout}" class="btn btn-outline-danger col-3 pt-2 ms-2">Logout</a>
+		    	</div>
+		    	
 		  	#{/if}
-
 	</nav>
+	
 	<div class="row w-50 mx-auto mt-5 border-bottom bottom-light">
-		<h3 class="text-light ps-0">DESTAQUES</h6>
+		<h3 class="text-light ps-0">DESTAQUES</h3>
 	</div>
 
 	<div>
