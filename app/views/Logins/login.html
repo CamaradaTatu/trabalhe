@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <html>
+#{if flash.success}
+<div class="alert alert-success" role="alert">
+	${flash.success}
+</div>
+#{/if}
+
+#{if flash.error}
+<div class="alert alert-danger" role="alert">
+	${flash.error}
+</div>
+#{/if}
 
 <head>
 	<meta charset="UTF-8">
@@ -23,16 +34,18 @@
 			</div>
 			<div class="mb-4 mt-3 mx-auto w-75 ">
 				<label for="" class="form-label" style="color: white;">Senha:</label>
-				<input type="password" class="form-control" style="background-color:#0d0d0d; color: white;" name= "senha">
+				<input type="password" class="form-control" style="background-color:#0d0d0d; color: white;"
+					name="senha">
 			</div>
 			<div class="mb-4 mx-auto w-75">
-				<input class="btn btn-primary" type="submit"/>
+				<input class="btn btn-primary" type="submit" />
 			</div>
-			
+
 		</div>
-		
+
 		<div class="row mt-4 mb-5 mx-auto w-25 border border-light border-opacity-75 rounded">
-			<p class="text-light text-center align-bottom my-4 ">Ainda não possuia uma conta?<a href="/logins/cadastrar">Crie uma
+			<p class="text-light text-center align-bottom my-4 ">Ainda não possuia uma conta?<a
+					href="/logins/cadastrar">Crie uma
 					aqui!</a></p>
 		</div>
 	</form>

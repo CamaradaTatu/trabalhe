@@ -1,40 +1,76 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title>#{get 'title' /}</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
-        #{get 'moreStyles' /}
-        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    </head>
-    <body>
-        
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+<head>
+	<title>#{get 'title' /}</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+	#{get 'moreStyles' /}
+	<link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+	<style>
+		@font-face {
+			font-family: "pixel";
+			src: url('/public/fonts/Pixeled.ttf') format("truetype");
+		}
+
+		@font-face {
+			font-family: "pixel-2";
+			src: url('/public/fonts/EarlyGameBoy.ttf') format("truetype");
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<nav class="navbar navbar-expand-lg bg-body-tertiary pt-3">
 
 		<div class="ms-5 col-3">
-			<h1><a href="@{Usuarios.telaInicial}" class="text-dark" style="text-decoration: none;">ACERTO CRÍTICO</a></h1>
-			</div>
-		
-		
-		
-			<form class="d-flex col-5" role="search" action="@{Usuarios.listaJogos}">
-				<input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar" 
-				name="termo" value="${termo}">
-				<button class="btn btn-dark" type="submit" value="Buscar">Pesquisar</button>
-			</form>
-			
-			    #{if session['usuarioLogado']}
-			    <div class= "row col-3 mx-auto ">
-		    	<span class="navbar-text col-7">
-		    	<h5>${session['usuarioLogado']}</h5>
-		    	</span>
-		    	<a href="@{Logins.logout}" class="btn btn-outline-danger col-3 pt-2 ms-2">Logout</a>
-		    	</div>
-		    	
-		  	#{/if}
+			<h2><a href="@{Usuarios.telaInicial}" class="text-dark"
+					style="text-decoration: none; font-family: pixel;">ACERTO CRÍTICO</a></h2>
+		</div>
+
+
+
+		<form class="d-flex col-5" role="search" action="@{Usuarios.listaJogos}">
+			<input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar" name="termo"
+				value="${termo}">
+			<button class="btn btn-dark" type="submit" value="Buscar">Pesquisar</button>
+		</form>
+
+		#{if session['usuarioLogado']}
+		<div class="row col-3 mx-auto ">
+			<span class="navbar-text col-7">
+				<h5 style="font-family: sans-serif;">${session['usuarioLogado']}</h5>
+			</span>
+			<a href="@{Logins.logout}" class="btn btn-outline-danger col-3 pt-2 ms-2">Logout</a>
+		</div>
+
+		#{/if}
 	</nav>
-        #{doLayout /}
-    </body>
+	#{ifErrors}
+	<div class="alert alert-warning" role="alert">
+		Dados inválidos
+	</div>
+	#{/ifErrors}
+
+	#{if flash.success}
+	<div class="alert alert-success" role="alert">
+		${flash.success}
+	</div>
+	#{/if}
+
+	#{if flash.error}
+	<div class="alert alert-danger" role="alert">
+		${flash.error}
+	</div>
+	#{/if}
+	
+	#{doLayout /}
+</body>
+
 </html>

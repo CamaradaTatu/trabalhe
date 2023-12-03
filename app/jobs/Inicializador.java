@@ -15,7 +15,7 @@ public class Inicializador extends Job {
 	public void doJob() throws Exception {
 		if (Jogo.count() == 0) {
 			
-			Jogo castlevâniaSOTN = new Jogo("Castlevânia",
+			Jogo castlevâniaSOTN = new Jogo("Castlevania",
 					"Lançado em 1997 para PlayStation, e no ano seguinte para Saturn, Castlevania: Symphony of the Night misturou ação, exploração e RPG em um jogo de aventura 2D quando os jogos em três dimensões pareciam ser o futuro. E foi com técnicas do passado, cercadas de inovação e qualidade, que o game se tornou um clássico dos videogames, sendo lembrado até hoje como um dos melhores jogos eletrônicos já produzidos.",
 					"/public/images/Castlevânia.jpg");
 			castlevâniaSOTN.save();

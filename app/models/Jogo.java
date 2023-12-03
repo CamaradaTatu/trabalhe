@@ -16,7 +16,7 @@ public class Jogo extends Model{
 	@Column(length = 1000)
 	public String descricao;
 	
-	public double nota;
+	public int nota;
 	public String caminhoImg;
 	
 	public Jogo() {

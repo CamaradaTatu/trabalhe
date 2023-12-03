@@ -1,6 +1,9 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import models.Comentario;
 import models.Jogo;
 import models.Usuario;
 import play.mvc.Controller;
@@ -49,7 +52,6 @@ public class Usuarios extends Controller {
 		try {
 			if(!validation.hasErrors()) {
 				usu.save();
-				flash.success("A pessoa foi cadastrada com sucesso.");
 				Logins.logar(usu.email, usu.senha);
 			}
 			else {
@@ -64,5 +66,31 @@ public class Usuarios extends Controller {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public static void listaComentario(Long idJogo) {
+		Jogo jSelecionado = Jogo.findById(idJogo);
+		String email = session.get("usuarioLogado");
+		List<Comentario> comentarios = Comentario.findAll();
+		List<Comentario> comentariosR = new ArrayList<Comentario>();
+		List<Comentario> comentariosM = new ArrayList<Comentario>();
+		List<Comentario> comentariosB = new ArrayList<Comentario>();
+		
+		// o trecho abaixo itera sobre todos os comentários para achar todos os comentários relacionados ao jogo selecionado(jSelecionado) e dividi-los em ruim, médio ou bom.
+		for (int i = 0; i < comentarios.size(); i++) {
+			if (comentarios.get(i).jogo == jSelecionado) {
+				if(comentarios.get(i).nota >= 1 && comentarios.get(i).nota <= 7) {
+					comentariosR.add(comentarios.get(i));
+				}
+				else if(comentarios.get(i).nota >= 8 && comentarios.get(i).nota <= 14) {
+					comentariosM.add(comentarios.get(i));
+				}
+				else if(comentarios.get(i).nota >= 15 && comentarios.get(i).nota <= 20) {
+					comentariosB.add(comentarios.get(i));
+				}
+			}
+		}
+		render(jSelecionado, email, comentariosR, comentariosM, comentariosB);
+		
 	}
 }

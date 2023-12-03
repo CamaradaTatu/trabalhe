@@ -44,24 +44,31 @@
 
 		<div class="row justify-content-center my-4 col bg-dark text-light px-0">
 			<div class="row">
-				<img src="@{'/public/images/dado.png'}" alt="nota" class="col-5 p-0 m-0 g-0" style="height: 75%;">
+				<img src="@{'/public/images/dado-blank.png'}" alt="nota" class="col-5 p-0 m-0 g-0" style="height: 75%;">
 				<p class="col-6 g-0 text-center" style="font-size: 32px; margin-top: 34px;">CRÍTICA</p>
 			</div>
 			<div class="row">
 				<p class="col-6 mx-2 g-0 text-center" style="font-size: 22px; margin-top: 34px;">JOGADORES</p>
-				<img src="@{'/public/images/dado.png'}" alt="nota" class="col-5 p-0 m-0 g-0" style="height: 75%;">
+				<img src="@{'/public/images/dado-blank.png'}" alt="nota" class="col-5 p-0 m-0 g-0" style="height: 75%;">
 			</div>
 		</div>
 
 
 	</div>
-	<div class="row row-cols-3 w-75 mx-auto my-5 pt-5">
+	<div class="row row-cols-3 w-75 mx-auto my-5" style="background-color: #171a1c;">
 
 		<div class="col border border-top-0 border-bottom-0 border-light">
+			<div class="d-flex flex-row mb-4" style="border-bottom: solid; border-color: white; border-width: 1px;">
+				<p class="text-light me-auto mt-auto" style="font-size: 42px;">Críticas positivas</p> <img
+					src="@{'/public/images/crit.png'}" style="width: 25%;">
+
+			</div>
 			<div class="row ">
 				#{list items:comentariosB, as:'b'}
-				<div class="card bg-dark col-11 mx-auto border-0 ">
-					<div class="card-header text-light">${b.usuario.nome}</div>
+				<div class="card   col-11 mx-auto border-0 mb-2 " style="background-color: #0d0d0d;">
+					<div class="card-header text-light d-flex pb-0" style="font-size: 18px; font-weight: bold;">
+						${b.usuario.nome} <p class="ms-auto">nota: ${b.nota}</p>
+					</div>
 					<div class="card-body text-light">
 						<p class="card-text">${b.comentario}</p>
 					</div>
@@ -72,13 +79,18 @@
 		</div>
 
 		<div class="col">
+			<div class="d-flex flex-row mb-4" style="border-bottom: solid; border-color: white; border-width: 1px; ">
+				<p class="text-light me-auto mt-auto " style="font-size: 36px;">Críticas Balanceadas</p> <img
+					src="@{'/public/images/crossed-Swords.png'}" style="width: 25%;">
+			</div>
 			<div class="row">
 				#{list items:comentariosM, as:'m'}
-				<div class="card bg-dark col-11 mx-auto border-0 ">
-					<div class="card-header text-light">${m.usuario.nome}</div>
+				<div class="card col-11 mx-auto border-0 mb-2" style="background-color: #0d0d0d;">
+					<div class="card-header text-light d-flex pb-0" style="font-size: 18px; font-weight: bold;">
+						${m.usuario.nome} <p class="ms-auto">nota: ${m.nota}</p>
+					</div>
 					<div class="card-body text-light">
-						<p class="card-text">${m.comentario}
-						</p>
+						<p class="card-text">${m.comentario}</p>
 					</div>
 				</div>
 				#{/list}
@@ -86,10 +98,16 @@
 		</div>
 
 		<div class="col border border-top-0 border-bottom-0 border-light">
+			<div class="d-flex flex-row mb-4" style="border-bottom: solid; border-color: white; border-width: 1px;">
+				<p class="text-light me-auto mt-auto" style="font-size: 42px;">Críticas Negativas</p> <img
+					src="@{'/public/images/Skull.png'}" style="width: 25%;">
+			</div>
 			<div class="row">
 				#{list items:comentariosR, as:'r'}
-				<div class="card bg-dark col-11 mx-auto border-0">
-					<div class="card-header text-light">${r.usuario.nome}</div>
+				<div class="card   col-11 mx-auto border-0 mb-2" style="background-color: #0d0d0d;">
+					<div class="card-header text-light d-flex pb-0" style="font-size: 18px; font-weight: bold;">
+						${r.usuario.nome} <p class="ms-auto">nota: ${r.nota}</p>
+					</div>
 					<div class="card-body text-light">
 						<p class="card-text">${r.comentario}</p>
 					</div>
@@ -103,7 +121,7 @@
 	</div>
 
 	<div class="row">
-		<h1 class="display-6 text-light text-center">Deixe Sua Crítica!</h1>
+		<h1 class="display-6 text-light text-center mt-5">Deixe Sua Crítica!</h1>
 	</div>
 	<form action="@{Comentarios.salvar}" method="POST">
 

@@ -7,11 +7,32 @@
 	<title>Acerto Crítico</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	<style>
+		@font-face {
+			font-family: "pixel";
+			src: url('/public/fonts/Pixeled.ttf') format("truetype");
+		}
+
+		@font-face {
+			font-family: "pixel-2";
+			src: url('/public/fonts/EarlyGameBoy.ttf') format("truetype");
+		}
+
+		@font-face {
+			font-family: "pixel-3";
+			src: url('/public/fonts/EarlyGame.ttf') format("truetype");
+		}
+
+		@font-face {
+			font-family: "pixel-4";
+			src: url('/public/fonts/Igiari.otf') format("Opentype");
+		}
+	</style>
 </head>
 
-<body style="background-color: #21262b;">
-	
-	
+<body style="background-color: #21262b; font-family: pixel-2; font-size: 75%;">
+
+
 	<div class="row w-50 mx-auto mt-5 border-bottom bottom-light">
 		<h3 class="text-light ps-0">DESTAQUES</h3>
 	</div>
@@ -20,28 +41,30 @@
 
 		<div class="row mt-1 w-50 mx-auto px-0">
 			<div class="col me-2 px-0">
-				
-				<form action="@{Comentarios.listaComentario}">
-					<input type="hidden" name="idJogo" value="${relAnt.id}"/>
+
+				<form action="@{Usuarios.listaComentario}">
+					<input type="hidden" name="idJogo" value="${relAnt.id}" />
 					<button type="submit" class="btn m-0 p-0">
-					<img src= "${relAnt.caminhoImg}" alt="Castlevânia" class="img-fluid rounded px-0">
-					</button>		
+						<img src="${relAnt.caminhoImg}" alt="Castlevânia" class="img-fluid rounded px-0">
+					</button>
 				</form>
 			</div>
-			
+
 			<div class="col me-2 px-0">
-				<form action="@{Comentarios.listaComentario}">
-					<input type="hidden" name="idJogo" value="${sucAno.id}"/>
+				<form action="@{Usuarios.listaComentario}">
+					<input type="hidden" name="idJogo" value="${sucAno.id}" />
 					<button type="submit" class="btn m-0 p-0">
-					<img src="${sucAno.caminhoImg}" alt="Castlevânia" class="img-fluid rounded px-0">
+						<img src="${sucAno.caminhoImg}" alt="Castlevânia" class="img-fluid rounded px-0">
 					</button>
+				</form>
 			</div>
 			<div class="col px-0">
-				<form action="@{Comentarios.listaComentario}">
-					<input type="hidden" name="idJogo" value="${expDif.id}"/>
+				<form action="@{Usuarios.listaComentario}">
+					<input type="hidden" name="idJogo" value="${expDif.id}" />
 					<button type="submit" class="btn m-0 p-0">
-					<img src="${expDif.caminhoImg}" alt="Castlevânia" class="img-fluid rounded px-0">
-					</button>				
+						<img src="${expDif.caminhoImg}" alt="Castlevânia" class="img-fluid rounded px-0">
+					</button>
+				</form>
 			</div>
 		</div>
 
@@ -51,10 +74,11 @@
 				style="background-color: #171a1c;">
 				<div class="card-body text-light ">
 					<div class="clearfix">
-						<img src="@{'/public/images/dado-blank.png'}" alt="nota" class="col-5 img-fluid float-end m-0 p-0">
+						<img src="@{'/public/images/dado-blank.png'}" alt="nota"
+							class="col-5 img-fluid float-end m-0 p-0">
 						<h5 class="card-title col-8">${relAnt.nome}</h5>
-						<h6 class="card-subtitle my-2 text-light">UMA RELÍQUIA ANTIGA</h6>
-						<p class="card-text col-12" style="text-align: justify;">
+						<h6 class="card-subtitle my-2 text-light">UMA RELIQUIA ANTIGA</h6>
+						<p class="card-text col-12" style="text-align: justify; font-family: pixel-4; font-size: 22px;">
 							${relAnt.descricao}
 						</p>
 					</div>
@@ -64,10 +88,11 @@
 				style="background-color: #171a1c;">
 				<div class="card-body text-light ">
 					<div class="clearfix">
-						<img src="@{'/public/images/dado-blank.png'}" alt="nota" class="col-5 img-fluid float-end m-0 p-0">
+						<img src="@{'/public/images/dado-blank.png'}" alt="nota"
+							class="col-5 img-fluid float-end m-0 p-0">
 						<h5 class="card-title col-8">${sucAno.nome}</h5>
 						<h6 class="card-subtitle my-2 text-light">UM SUCESSO DO ANO</h6>
-						<p class="card-text col-12" style="text-align: justify;">
+						<p class="card-text col-12" style="text-align: justify; font-family: pixel-4; font-size: 22px;">
 							${sucAno.descricao}
 						</p>
 					</div>
@@ -77,10 +102,14 @@
 				style="background-color: #171a1c;">
 				<div class="card-body text-light ">
 					<div class="clearfix">
-						<img src="@{'/public/images/dado-blank.png'}" alt="nota" class="col-5 img-fluid float-end m-0 p-0">
+						<div class="col-5 float-end m-0 p-0" style="position: relative; text-align: center;">
+						<img src="@{'/public/images/dado-blank.png'}" alt="nota"
+							class="img-fluid ">
+							<div style="position: absolute; top: 43%; left: 50%; transform: translate(-57%, -50%); font-size: 16px;">${expDif.nota}</div>
+							</div>
 						<h5 class="card-title col-8">${expDif.nome}</h5>
-						<h6 class="card-subtitle my-2 text-light">UMA EXPERIÊNCIA DIFERENTE</h6>
-						<p class="card-text col-12" style="text-align: justify;">
+						<h6 class="card-subtitle my-2 text-light">UMA EXPERIENCIA DIFERENTE</h6>
+						<p class="card-text col-12" style="text-align: justify; font-family: pixel-4; font-size: 22px;">
 							${expDif.descricao}
 						</p>
 					</div>
@@ -91,11 +120,12 @@
 	</div>
 	<div class="row w-50 mx-auto mb-3">
 		<div class="card shadow-lg col-9 text-light" style="background-color: #171a1c;">
-			<h5 class="card-header border-bottom border-light">EAÍ JOGADOR!</h5>
+			<h5 class="card-header border-bottom border-light">EAE JOGADOR!</h5>
 			<div class="card-body">
-				<h5 class="card-title">Quer deixa sua review também?</h5>
-				<p class="card-text">Clique aqui para ter acesso aos diversos jogos que já possuem crítica. Contribua você também! <3 </p>
-				<a href="/Comentarios/cadastrarComentário" class="btn btn-outline-danger">Fazer uma Review</a>
+				<h5 class="card-title">Quer deixar sua review tambem?</h5>
+				<p class="card-text">Clique aqui para ter acesso aos diversos jogos que ja possuem critica. Contribua
+					voce tambem! < </p>
+						<a href="/Comentarios/cadastrarComentário" class="btn btn-outline-danger">Fazer uma Review</a>
 			</div>
 		</div>
 </body>

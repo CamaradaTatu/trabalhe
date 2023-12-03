@@ -7,7 +7,7 @@ public class Secure extends Controller {
 	
 	@Before
     static void checkAuthentification() {
-    	if (session.get("usuarioLogado") == null) {
+    	if (session.contains("usuarioLogado") == false) {
     		Logins.login();
     	}
     }
