@@ -1,6 +1,17 @@
 <!DOCTYPE html>
-<html>
 
+<html>
+#{if flash.success}
+	<div class="alert alert-success" role="alert">
+		${flash.success}
+	</div>
+	#{/if}
+	
+	#{if flash.error}
+	<div class="alert alert-danger" role="alert">
+		${flash.error}
+	</div>
+	#{/if}
 <head>
 	<meta charset="UTF-8">
 	<title>Acerto Crítico</title>

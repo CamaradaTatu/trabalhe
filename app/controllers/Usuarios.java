@@ -49,7 +49,6 @@ public class Usuarios extends Controller {
 		try {
 			if(!validation.hasErrors()) {
 				usu.save();
-				flash.success("A pessoa foi cadastrada com sucesso.");
 				Logins.logar(usu.email, usu.senha);
 			}
 			else {

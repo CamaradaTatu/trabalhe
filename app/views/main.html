@@ -35,6 +35,24 @@
 		    	
 		  	#{/if}
 	</nav>
-        #{doLayout /}
+	#{ifErrors}
+	<div class="alert alert-warning" role="alert">
+		Dados inválidos
+	</div>
+	#{/ifErrors}
+	
+	#{if flash.success}
+	<div class="alert alert-success" role="alert">
+		${flash.success}
+	</div>
+	#{/if}
+	
+	#{if flash.error}
+	<div class="alert alert-danger" role="alert">
+		${flash.error}
+	</div>
+	#{/if}
+	
+	#{doLayout /}
     </body>
 </html>
