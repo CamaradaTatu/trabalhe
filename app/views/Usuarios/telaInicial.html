@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+#{extends 'main.html' /}
 <html>
 
 <head>
@@ -9,29 +10,7 @@
 </head>
 
 <body style="background-color: #21262b;">
-	<nav class="navbar navbar-expand-lg bg-body-tertiary">
-
-		<h1 class="ms-5 col-3">ACERTO CRÍTICO</h1>
-
-			<form class="d-flex col-5" role="search" action="@{Usuarios.telaInicial}">
-				<input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar" 
-				name="termo" value="${termo}">
-				<button class="btn btn-dark" type="submit" value="Buscar">Pesquisar</button>
-			</form>
-			#{list items:jogos, as:'j'}
-	    ${j.nome}
-	#{/list}
-			
-			    #{if session['usuarioLogado']}
-			    <div class= "row col-3 mx-auto ">
-		    	<span class="navbar-text col-7">
-		    	<h5>${session['usuarioLogado']}</h5>
-		    	</span>
-		    	<a href="@{Logins.logout}" class="btn btn-outline-danger col-3 pt-2 ms-2">Logout</a>
-		    	</div>
-		    	
-		  	#{/if}
-	</nav>
+	
 	
 	<div class="row w-50 mx-auto mt-5 border-bottom bottom-light">
 		<h3 class="text-light ps-0">DESTAQUES</h3>
@@ -72,13 +51,11 @@
 				style="background-color: #171a1c;">
 				<div class="card-body text-light ">
 					<div class="clearfix">
-						<img src="@{'/public/images/dado.png'}" alt="nota" class="col-5 img-fluid float-end m-0 p-0">
+						<img src="@{'/public/images/dado-blank.png'}" alt="nota" class="col-5 img-fluid float-end m-0 p-0">
 						<h5 class="card-title col-8">${relAnt.nome}</h5>
 						<h6 class="card-subtitle my-2 text-light">UMA RELÍQUIA ANTIGA</h6>
-						<p class="card-text col-12">
-							Symphony of the Night apresenta jogabilidade de rolagem lateral. O objetivo é explorar o
-							castelo de Dracula para derrotar uma entidade que está controlando Richter Belmont, que se
-							auto-proclamou lorde do castelo e herói dos eventos que aconteceram em Rondo of Blood.
+						<p class="card-text col-12" style="text-align: justify;">
+							${relAnt.descricao}
 						</p>
 					</div>
 				</div>
@@ -87,13 +64,11 @@
 				style="background-color: #171a1c;">
 				<div class="card-body text-light ">
 					<div class="clearfix">
-						<img src="@{'/public/images/dado.png'}" alt="nota" class="col-5 img-fluid float-end m-0 p-0">
+						<img src="@{'/public/images/dado-blank.png'}" alt="nota" class="col-5 img-fluid float-end m-0 p-0">
 						<h5 class="card-title col-8">${sucAno.nome}</h5>
 						<h6 class="card-subtitle my-2 text-light">UM SUCESSO DO ANO</h6>
-						<p class="card-text col-12">
-							Symphony of the Night apresenta jogabilidade de rolagem lateral. O objetivo é explorar o
-							castelo de Dracula para derrotar uma entidade que está controlando Richter Belmont, que se
-							auto-proclamou lorde do castelo e herói dos eventos que aconteceram em Rondo of Blood.
+						<p class="card-text col-12" style="text-align: justify;">
+							${sucAno.descricao}
 						</p>
 					</div>
 				</div>
@@ -102,13 +77,11 @@
 				style="background-color: #171a1c;">
 				<div class="card-body text-light ">
 					<div class="clearfix">
-						<img src="@{'/public/images/dado.png'}" alt="nota" class="col-5 img-fluid float-end m-0 p-0">
+						<img src="@{'/public/images/dado-blank.png'}" alt="nota" class="col-5 img-fluid float-end m-0 p-0">
 						<h5 class="card-title col-8">${expDif.nome}</h5>
 						<h6 class="card-subtitle my-2 text-light">UMA EXPERIÊNCIA DIFERENTE</h6>
-						<p class="card-text col-12">
-							Symphony of the Night apresenta jogabilidade de rolagem lateral. O objetivo é explorar o
-							castelo de Dracula para derrotar uma entidade que está controlando Richter Belmont, que se
-							auto-proclamou lorde do castelo e herói dos eventos que aconteceram em Rondo of Blood.
+						<p class="card-text col-12" style="text-align: justify;">
+							${expDif.descricao}
 						</p>
 					</div>
 				</div>

@@ -7,6 +7,7 @@ import java.util.List;
 import models.Comentario;
 import models.Jogo;
 import models.Usuario;
+import play.data.validation.Valid;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -24,7 +25,7 @@ public class Comentarios extends Controller {
 	 * Usuario.findAll(); render(comentarios); }
 	 */
 	
-	public static void salvar(Comentario C, String email, Long idJogo) {
+	public static void salvar(@Valid Comentario C, String email, Long idJogo) {
 		
 		Usuario usu = Usuario.find("email = ?1", email).first();
 		Jogo jogo = Jogo.findById(idJogo);
@@ -39,7 +40,7 @@ public class Comentarios extends Controller {
 			}
 			
 		}
-		if (condicional == null) {
+		if (condicional == null && !validation.hasErrors()) {
 			flash.success("Sua crítica foi adicionada em nosso site!");
 			C.save();
 		}
@@ -48,7 +49,7 @@ public class Comentarios extends Controller {
 			flash.error("você ja possui uma crítica para este jogo!");
 		}	
 		
-		Usuarios.telaInicial(null);
+		listaComentario(idJogo);
 		// listar();
 	}
 	

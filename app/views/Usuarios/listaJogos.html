@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+#{extends 'main.html' /}
 <html>
 
 <head>
@@ -9,34 +10,24 @@
 </head>
 
 <body class="bg-dark">
-	<nav class="navbar navbar-expand-lg bg-body-tertiary">
-		<h1 class="ms-5 col-3">ACERTO CRÍTICO</h3>
-			<form class="d-flex col-6" role="search">
-				<input class="form-control me-3" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-				<button class="btn btn-dark" type="submit">Pesquisar</button>
-			</form>
-	</nav>
-
+	
+	
+	#{list items:jogos, as:'j'}
 	<div class="row">
 		<div class="card mb-4 w-50 mx-auto px-0 mt-4 text-light shadow-lg rounded-0 border-light border-start-0 border-end-0 border-top-0 "
 			style="background-color: #171a1c;">
 			<div class="row g-0">
 				<div class="col-2">
 					<a href="#">
-					<img src="@{'/public/images/Castlevânia.jpg'}" class="w-100" alt="...">
+					<img src="${j.caminhoImg}" class="w-100" alt="...">
 					</a>
 				</div>
 				<div class="col-10">
 					<div class="clearfix">
 						<div class="card-body">
 							<img src="@{'/public/images/dado.png'}" alt="nota" class="col-2 img-fluid float-end m-0 p-0">
-							<h5 class="card-title">Castlevânia SOTN</h5>
-							<p class="card-text" style="text-align: justify;">Symphony of the Night apresenta jogabilidade de rolagem lateral. O
-								objetivo
-								é explorar o
-								castelo de Dracula para derrotar uma entidade que está controlando Richter Belmont, que
-								se
-								auto-proclamou lorde do castelo e herói dos eventos que aconteceram em Rondo of Blood.
+							<h5 class="card-title">${j.nome}</h5>
+							<p class="card-text" style="text-align: justify;">${j.descricao}
 							</p>
 						</div>
 					</div>
@@ -44,58 +35,8 @@
 			</div>
 		</div>
 	</div>
+	#{/list}
 	
-	<div class="row ">
-		<div class="card mb-4 w-50 mx-auto px-0  text-light shadow-lg rounded-0 border-light border-start-0 border-end-0 border-top-0 "
-			style="background-color: #171a1c;">
-			<div class="row g-0">
-				<div class="col-2">
-					<img src="@{'/public/images/detroit.jpg'}" class="w-100" alt="...">
-				</div>
-				<div class="col-10">
-					<div class="clearfix">
-						<div class="card-body">
-							<img src="@{'/public/images/dado.png'}" alt="nota" class="col-2 img-fluid float-end m-0 p-0">
-							<h5 class="card-title">Castlevânia SOTN</h5>
-							<p class="card-text" style="text-align: justify;">Symphony of the Night apresenta jogabilidade de rolagem lateral. O
-								objetivo
-								é explorar o
-								castelo de Dracula para derrotar uma entidade que está controlando Richter Belmont, que
-								se
-								auto-proclamou lorde do castelo e herói dos eventos que aconteceram em Rondo of Blood.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div class="row ">
-		<div class="card mb-4 w-50 mx-auto px-0  text-light shadow-lg rounded-0 border-light border-start-0 border-end-0 border-top-0 "
-			style="background-color: #171a1c;">
-			<div class="row g-0">
-				<div class="col-2">
-					<img src="@{'/public/images/zelda.jpg'}" class="w-100" alt="...">
-				</div>
-				<div class="col-10">
-					<div class="clearfix">
-						<div class="card-body">
-							<img src="@{'/public/images/dado.png'}" alt="nota" class="col-2 img-fluid float-end m-0 p-0">
-							<h5 class="card-title">Castlevânia SOTN</h5>
-							<p class="card-text" style="text-align: justify;">Symphony of the Night apresenta jogabilidade de rolagem lateral. O
-								objetivo
-								é explorar o
-								castelo de Dracula para derrotar uma entidade que está controlando Richter Belmont, que
-								se
-								auto-proclamou lorde do castelo e herói dos eventos que aconteceram em Rondo of Blood.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
 </body>
 
