@@ -1,8 +1,8 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-
 import models.Comentario;
 import models.Jogo;
 import models.Usuario;
@@ -33,6 +33,16 @@ public class Usuarios extends Controller {
 		}
 		
 		render(jogos);
+	}
+	
+	public static void listarAjax(String termo) {
+		List<Jogo> jogos = Collections.emptyList();
+		if (termo == null || termo.trim().isEmpty()) {
+			jogos = Jogo.findAll();
+		} else {
+			jogos = Jogo.find("lower(nome) like ?1", "%" + termo.toLowerCase() + "%").fetch();
+		}
+		renderJSON(jogos);
 	}
 
 	public static void editar(long id) {
